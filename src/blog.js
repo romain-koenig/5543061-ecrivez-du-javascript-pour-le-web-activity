@@ -1,15 +1,22 @@
-const api = 'https://master-7rqtwti-fus3tltfddn7w.eu-2.platformsh.site';
+const api = "https://mashape-community-skate-ipsum.p.rapidapi.com/1/0/JSON";
+
 const loadButton = document.getElementById('load-button');
 
 function getRequest(url) {
   return new Promise((resolve, reject) => {
     let request = new XMLHttpRequest();
     request.open('GET', url);
+
+    request.setRequestHeader("X-RapidAPI-Host", "mashape-community-skate-ipsum.p.rapidapi.com");
+    request.setRequestHeader("X-RapidAPI-Key", "b7bfae06bcmshf712d6c0796cac4p13cb8ejsnb70722f5b848");
+
     request.onreadystatechange = () => {
       if (request.readyState === 4) {
         if (request.status !== 200) {
+          console.log("ERREUR - " + request.response);
           reject(JSON.parse(request.response));
         }
+        console.log("OK - " + request.response);
         resolve(JSON.parse(request.response));
       }
     };
@@ -18,13 +25,12 @@ function getRequest(url) {
 }
 
 async function getBlogPost() {
-  //Quick hack car le webservice de Lorem Ispum fourni ne fonctionne pas
-  //const titlePromise = getRequest(api + '/generate-title');
-  //const loremPromise = getRequest(api + '/generate-lorem');
+  //Quick hack pour changer le provider de Lorem Ipsum (celui fourni ne fonctionne pas)
+  const titlePromise = getRequest(api);
+  const loremPromise = getRequest(api);
   try {
-    //let [titleResponse, loremResponse] = await Promise.all([titlePromise, loremPromise]);
-    //document.querySelector('main').appendChild(buildPostElement(titleResponse.title, loremResponse.lorem));
-    document.querySelector('main').appendChild(buildPostElement("Lorem Ipsum", "xxx yyy zzz ttt"));
+    let [titleResponse, loremResponse] = await Promise.all([titlePromise, loremPromise]);
+    document.querySelector('main').appendChild(buildPostElement(titleResponse, loremResponse));
   } catch (error) {
     document.querySelector('main').appendChild(buildPostElement('Une erreur est survenue !', error));
   }
