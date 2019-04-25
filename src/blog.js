@@ -18,11 +18,13 @@ function getRequest(url) {
 }
 
 async function getBlogPost() {
-  const titlePromise = getRequest(api + '/generate-title');
-  const loremPromise = getRequest(api + '/generate-lorem');
+  //Quick hack car le webservice de Lorem Ispum fourni ne fonctionne pas
+  //const titlePromise = getRequest(api + '/generate-title');
+  //const loremPromise = getRequest(api + '/generate-lorem');
   try {
-    let [titleResponse, loremResponse] = await Promise.all([titlePromise, loremPromise]);
-    document.querySelector('main').appendChild(buildPostElement(titleResponse.title, loremResponse.lorem));
+    //let [titleResponse, loremResponse] = await Promise.all([titlePromise, loremPromise]);
+    //document.querySelector('main').appendChild(buildPostElement(titleResponse.title, loremResponse.lorem));
+    document.querySelector('main').appendChild(buildPostElement("LOREM IPSUM", "xxx yyy zzz ttt"));
   } catch (error) {
     document.querySelector('main').appendChild(buildPostElement('Une erreur est survenue !', error));
   }
