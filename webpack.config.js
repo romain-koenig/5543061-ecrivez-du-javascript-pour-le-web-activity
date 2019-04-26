@@ -5,7 +5,8 @@ module.exports = {
     //mode: "production",
     entry: {
         blog: './src/blog.js', 
-        fcn: './src/functions.js'
+        fcn: './src/functions.js',
+        reload: 'webpack-dev-server/client?http://localhost:8080'
     },
     output: {
         filename: '[name].bundle.js',
