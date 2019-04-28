@@ -1,1 +1,5 @@
 .idea
+# Ne pas tracker les fichiers générés par webpack
+**/*.bundle.js
+# Ignorer tout le répertoire node_modules
+node_modules
