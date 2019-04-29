@@ -4,6 +4,8 @@
 
 Clonez ce repository et ajoutez-y webpack comme expliqué dans l'activité.
 
+### A noter pour la correction : les fichiers functions.js et blog.js doivent se trouver dans un dossier Src
+
 Pour valider cette activité, les éléments suivants devront être réalisés :
 
 - Transpiler et minifier du code JavaScript ;
