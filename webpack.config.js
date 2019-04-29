@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-    //mode: "production",
-    mode: "development",
+    mode: "production",
+    //mode: "development",
     entry: {
         fcn: './Src/functions.js',
         blog: './Src/blog.js'
@@ -14,6 +14,21 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'Dist'),
         compress: true,
-        port: 8080 // superflu, pot 8080 par défaut
+        port: 8080 // superflu, port 8080 par défaut
     }
-};
+}
+module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+;

@@ -41,7 +41,13 @@ module.exports = {
 
 npm install webpack-dev-server --save-dev
 
-> Installation du serveur de développement
+> Installation du serveur de développement ; lancement par npm start
+
+npm install -D babel-loader @babel/core @babel/preset-env
+
+> Installation de Babel avec le babel-loader pour utilisation avec webpack
+
+
 
 ------------------------------------------
 
