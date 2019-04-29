@@ -14,6 +14,8 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'Dist'),
         compress: true,
+        open: true, // Ouverture automatique de navigateur
+        watchContentBase: true, // refresh du navigateur sur recompilation à chaud
         port: 8080 // superflu, port 8080 par défaut
     }
 }

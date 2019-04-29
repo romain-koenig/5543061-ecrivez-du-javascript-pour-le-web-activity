@@ -18,7 +18,6 @@ function getRequest(url, isTitle) {
           console.log("ERREUR - " + request.response);
           reject(JSON.parse(request.response));
         }
-        console.log("OK - " + request.response);
         resolve(isTitle ? JSON.parse(request.response)[0].substring(0, 50) : JSON.parse(request.response));
       }
     };
